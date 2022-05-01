@@ -25,7 +25,6 @@ packer.init({
 --- startup and add configure plugins
 packer.startup(
 function()
-    --use "morhetz/gruvbox"
     use "sainnhe/gruvbox-material"
     use "nvim-treesitter/nvim-treesitter"
     use "nvim-treesitter/playground"
@@ -50,7 +49,6 @@ function()
     use "jpalardy/vim-slime"
     use "tpope/vim-surround"
     use "tpope/vim-repeat"
-    use "nathanaelkane/vim-indent-guides"
     use "cespare/vim-toml"
     use "preservim/nerdtree"
     use {
