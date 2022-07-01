@@ -38,10 +38,6 @@ function()
     use "tpope/vim-fugitive"
     use "psliwka/vim-smoothie"
     use {
-        "neoclide/coc.nvim",
-        branch = "release"
-    }
-    use {
         "phaazon/hop.nvim",
         as = "hop"
     }
@@ -72,6 +68,10 @@ function()
     use {
         "glacambre/firenvim",
         run = function() vim.fn["firenvim#install"](0) end 
-}
+    }
+    use {
+        "folke/twilight.nvim",
+        config = function() require("twilight").setup {} end
+    }
 end
 )
