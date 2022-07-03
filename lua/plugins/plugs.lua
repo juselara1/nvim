@@ -73,5 +73,7 @@ function()
         "folke/twilight.nvim",
         config = function() require("twilight").setup {} end
     }
+    use "neovim/nvim-lspconfig"
+    use "williamboman/nvim-lsp-installer"
 end
 )
