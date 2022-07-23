@@ -77,5 +77,6 @@ function()
     use "hrsh7th/cmp-cmdline"
     use "hrsh7th/nvim-cmp"
     use "quangnguyen30192/cmp-nvim-ultisnips"
+    use "mbbill/undotree"
 end
 )
