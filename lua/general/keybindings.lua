@@ -18,11 +18,16 @@ bind('n', "<Leader>gpl", ":Git pull<CR>")
 bind('n', "<Leader>gh", ":diffget //3<CR>")
 bind('n', "<Leader>gu", ":diffget //2<CR>")
 
--- coc
-bind('n', "gd", ":call CocAction('jumpDefinition', '')<CR>")
-bind('n', "gy", ":call CocAction('jumpTypeDefinition')<CR>")
-bind('n', "gi", ":call CocAction('jumpImplementation')<CR>")
-bind('n', "gr", ":call CocAction('doHover')<CR>")
+-- lsp
+bind('n', "gd", ":lua vim.lsp.buf.declaration()<CR>")
+bind('n', "gi", ":lua vim.lsp.buf.implementation()<CR>")
+bind('n', "gh", ":lua vim.lsp.buf.hover()<CR>")
+bind('n', "gs", ":lua vim.lsp.buf.signature_help()<CR>")
+bind('n', "grf", ":lua vim.lsp.buf.references()<CR>")
+bind('n', "grn", ":lua vim.lsp.buf.rename()<CR>")
+bind('n', "gn", ":lua vim.diagnostic.goto_prev({border = 'rounded'})<CR>")
+bind('n', "gN", ":lua vim.diagnostic.goto_next({border = 'rounded'})<CR>")
+bind('n', "gl", ":lua vim.diagnostic.show_line_diagnostics({border = 'rounded'})<CR>")
 
 -- hop
 bind('n', "<Leader>l", ":HopLine<CR>")
@@ -50,5 +55,5 @@ bind('n', "<Leader>b", ":Telescope buffers<CR>")
 bind('n', "<Leader>fl", ":Telescope live_grep<CR>")
 bind('n', "<Leader>ff", ":Telescope find_files<CR>")
 
---registers
-bind('n', "<Leader>p", ":Registers<CR>")
+--undotree
+bind('n', "<Leader>u", ":UndotreeToggle<CR>")

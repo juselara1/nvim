@@ -38,10 +38,6 @@ function()
     use "tpope/vim-fugitive"
     use "psliwka/vim-smoothie"
     use {
-        "neoclide/coc.nvim",
-        branch = "release"
-    }
-    use {
         "phaazon/hop.nvim",
         as = "hop"
     }
@@ -70,8 +66,17 @@ function()
         requires = "kyazdani42/nvim-web-devicons"
     }
     use {
-        "glacambre/firenvim",
-        run = function() vim.fn["firenvim#install"](0) end 
-}
+        "folke/twilight.nvim",
+        config = function() require("twilight").setup {} end
+    }
+    use "neovim/nvim-lspconfig"
+    use "williamboman/nvim-lsp-installer"
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-cmdline"
+    use "hrsh7th/nvim-cmp"
+    use "quangnguyen30192/cmp-nvim-ultisnips"
+    use "mbbill/undotree"
 end
 )
