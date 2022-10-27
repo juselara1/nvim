@@ -55,19 +55,13 @@ function()
             }
         }
     }
-    use "tversteeg/registers.nvim"
     use {
         "AckslD/nvim-revJ.lua",
         requires = {"kana/vim-textobj-user", "sgur/vim-textobj-parameter"},
     }
-    use "github/copilot.vim"
     use {
         "akinsho/bufferline.nvim",
         requires = "kyazdani42/nvim-web-devicons"
-    }
-    use {
-        "folke/twilight.nvim",
-        config = function() require("twilight").setup {} end
     }
     use "neovim/nvim-lspconfig"
     use "williamboman/nvim-lsp-installer"
