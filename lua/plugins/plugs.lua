@@ -36,7 +36,6 @@ function()
         requires={"kyazdani42/nvim-web-devicons", opt=true}
     }
     use "tpope/vim-fugitive"
-    use "psliwka/vim-smoothie"
     use {
         "phaazon/hop.nvim",
         as = "hop"
@@ -72,5 +71,6 @@ function()
     use "hrsh7th/nvim-cmp"
     use "quangnguyen30192/cmp-nvim-ultisnips"
     use "mbbill/undotree"
+    use "chentoast/marks.nvim"
 end
 )

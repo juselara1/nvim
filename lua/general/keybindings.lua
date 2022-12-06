@@ -38,10 +38,10 @@ bind('n', "<Leader>s", ":HopChar2<CR>")
 bind('n', "<Leader>r", ":call slime#send_cell()<CR>")
 
 -- shortcuts
-bind('n', "<Leader>p", ":reg<CR>") --registers
 bind('n', "<Leader>c", ":noh<CR>") --clear search
 bind('n', "<Leader>e", ":e .<CR>") --file navigator
 bind('n', "<Leader>a", ":set list!<CR>") --toggle hidden characters
+bind('n', "<Leader>p", "\"0p") --paste from yank buffer
 
 -- spellcheck
 bind('n', "<Leader>h", ":set spell!<CR>")
@@ -57,3 +57,7 @@ bind('n', "<Leader>ff", ":Telescope find_files<CR>")
 
 --undotree
 bind('n', "<Leader>u", ":UndotreeToggle<CR>")
+
+--rebinds
+bind('n', "<C-d>", "<C-d>zz")
+bind('n', "<C-b>", "<C-b>zz")
