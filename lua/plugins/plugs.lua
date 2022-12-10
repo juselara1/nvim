@@ -64,5 +64,6 @@ function()
     }
     use "wellle/targets.vim"
     use "numToStr/Comment.nvim"
+    use "ggandor/leap.nvim"
 end
 )

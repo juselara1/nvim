@@ -29,11 +29,6 @@ bind('n', "gn", ":lua vim.diagnostic.goto_prev({border = 'rounded'})<CR>")
 bind('n', "gN", ":lua vim.diagnostic.goto_next({border = 'rounded'})<CR>")
 bind('n', "gl", ":lua vim.diagnostic.show_line_diagnostics({border = 'rounded'})<CR>")
 
--- hop
-bind('n', "<Leader>l", ":HopLine<CR>")
-bind('n', "<Leader>w", ":HopWord<CR>")
-bind('n', "<Leader>s", ":HopChar2<CR>")
-
 -- vim-slime
 bind('n', "<Leader>r", ":call slime#send_cell()<CR>")
 
