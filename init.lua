@@ -5,6 +5,7 @@ require("plugins.plugs")
 
 require("pluginconf.mason")
 require("pluginconf.nvim-cmp")
+require("pluginconf.lsp_signature")
 require("pluginconf.treesitter")
 require("pluginconf.treesitter-rainbow")
 require("pluginconf.treesitter-context")

@@ -54,6 +54,7 @@ function()
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-cmdline"
     use "hrsh7th/nvim-cmp"
+    use "ray-x/lsp_signature.nvim"
     use "quangnguyen30192/cmp-nvim-ultisnips"
     use "mbbill/undotree"
     use "chentoast/marks.nvim"
