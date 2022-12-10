@@ -7,7 +7,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute "packadd packer.nvim"
 end
 
-vim.cmd("packadd packer.nvim")
+execute "packadd packer.nvim"
 
 local packer = require("packer")
 local util = require("packer.util")
@@ -18,14 +18,14 @@ packer.init({
     "pack"
     ),
     git = {
-        clone_timeout = 600
+        clone_timeout = 1000
     }
 })
 
 --- startup and add configure plugins
 packer.startup(
 function()
-    use "sainnhe/gruvbox-material"
+    use "sainnhe/everforest"
     use "nvim-treesitter/nvim-treesitter"
     use "nvim-treesitter/playground"
     use "romgrk/nvim-treesitter-context"
@@ -36,34 +36,19 @@ function()
         requires={"kyazdani42/nvim-web-devicons", opt=true}
     }
     use "tpope/vim-fugitive"
-    use {
-        "phaazon/hop.nvim",
-        as = "hop"
-    }
     use "SirVer/ultisnips"
     use "jpalardy/vim-slime"
     use "tpope/vim-surround"
     use "tpope/vim-repeat"
-    use "cespare/vim-toml"
     use "preservim/nerdtree"
-    use {
-        "nvim-telescope/telescope.nvim",
-        requires = {
-            {
-                "nvim-lua/plenary.nvim"
-            }
-        }
-    }
-    use {
-        "AckslD/nvim-revJ.lua",
-        requires = {"kana/vim-textobj-user", "sgur/vim-textobj-parameter"},
-    }
+    use "AckslD/nvim-trevJ.lua"
     use {
         "akinsho/bufferline.nvim",
         requires = "kyazdani42/nvim-web-devicons"
     }
     use "neovim/nvim-lspconfig"
-    use "williamboman/nvim-lsp-installer"
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-path"
@@ -72,5 +57,9 @@ function()
     use "quangnguyen30192/cmp-nvim-ultisnips"
     use "mbbill/undotree"
     use "chentoast/marks.nvim"
+    use {
+        "stevearc/aerial.nvim",
+        branch = "nvim-0.5"
+    }
 end
 )
