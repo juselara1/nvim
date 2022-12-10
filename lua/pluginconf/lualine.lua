@@ -14,7 +14,10 @@ require("lualine").setup({
 				sources = {"nvim_lsp"} 
 			}, 
 			"filename"
-		}
+		},
+        lualine_x = {
+            "aerial"
+        }
 	}
 })
 

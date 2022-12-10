@@ -4,8 +4,8 @@ local bind = function(
     mode, keys, command
     )
     vim.api.nvim_set_keymap(
-	mode, keys, command,
-	{noremap = true, silent=true}
+        mode, keys, command,
+        {noremap = true, silent=true}
 	)
 end
 
@@ -50,13 +50,11 @@ bind('n', "<Leader>t", "1z=")
 --nerdtree
 bind('n', "<Leader>o", ":NERDTreeToggle<CR>")
 
---telescope
-bind('n', "<Leader>b", ":Telescope buffers<CR>")
-bind('n', "<Leader>fl", ":Telescope live_grep<CR>")
-bind('n', "<Leader>ff", ":Telescope find_files<CR>")
-
 --undotree
 bind('n', "<Leader>u", ":UndotreeToggle<CR>")
+
+--aerial
+bind('n', "<Leader>a", ":AerialToggle<CR>")
 
 --rebinds
 bind('n', "<C-d>", "<C-d>zz")
