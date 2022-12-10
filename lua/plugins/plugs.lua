@@ -40,7 +40,6 @@ function()
     use "jpalardy/vim-slime"
     use "tpope/vim-surround"
     use "tpope/vim-repeat"
-    use "preservim/nerdtree"
     use "AckslD/nvim-trevJ.lua"
     use {
         "akinsho/bufferline.nvim",
@@ -66,5 +65,11 @@ function()
     use "numToStr/Comment.nvim"
     use "ggandor/leap.nvim"
     use "uga-rosa/ccc.nvim"
+    use {
+        "nvim-tree/nvim-tree.lua",
+        requires = {
+            "nvim-tree/nvim-web-devicons", -- optional, for file icons
+        }
+    }
 end
 )

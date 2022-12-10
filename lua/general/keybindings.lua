@@ -42,8 +42,8 @@ bind('n', "<Leader>p", "\"0p") --paste from yank buffer
 bind('n', "<Leader>h", ":set spell!<CR>")
 bind('n', "<Leader>t", "1z=")
 
---nerdtree
-bind('n', "<Leader>o", ":NERDTreeToggle<CR>")
+--nvim-tree
+bind('n', "<Leader>o", ":NvimTreeToggle<CR>")
 
 --undotree
 bind('n', "<Leader>u", ":UndotreeToggle<CR>")
