@@ -62,5 +62,7 @@ function()
         "stevearc/aerial.nvim",
         branch = "nvim-0.5"
     }
+    use "wellle/targets.vim"
+    use "numToStr/Comment.nvim"
 end
 )
