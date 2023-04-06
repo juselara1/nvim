@@ -54,3 +54,6 @@ bind('n', "<Leader>a", ":AerialToggle<CR>")
 --rebinds
 bind('n', "<C-d>", "<C-d>zz")
 bind('n', "<C-b>", "<C-b>zz")
+
+--hop
+bind('n', "<Leader>l", ":HopLine<CR>")

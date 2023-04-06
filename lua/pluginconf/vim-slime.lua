@@ -1,5 +1,5 @@
 vim.g.slime_target = "tmux"
-vim.g.slime_paste_file = "$HOME/.slime_paste"
+vim.g.slime_paste_file = vim.fn.expand("$HOME/.slime_paste")
 
 local ft = vim.bo.filetype
 if (
@@ -16,4 +16,8 @@ elseif (
     ft == "haskell"
     ) then
     vim.g.slime_cell_delimiter = "-- %%"
+elseif (
+    ft == "lisp"
+    ) then
+    vim.g.slime_cell_delimiter = ";; %%"
 end

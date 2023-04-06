@@ -62,7 +62,6 @@ function()
     }
     use "wellle/targets.vim"
     use "numToStr/Comment.nvim"
-    use "ggandor/leap.nvim"
     use "uga-rosa/ccc.nvim"
     use {
         "nvim-tree/nvim-tree.lua",
@@ -70,5 +69,6 @@ function()
             "nvim-tree/nvim-web-devicons", -- optional, for file icons
         }
     }
+    use {'phaazon/hop.nvim', branch = 'v2'}
 end
 )
