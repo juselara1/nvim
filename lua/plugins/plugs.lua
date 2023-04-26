@@ -70,6 +70,6 @@ function()
         }
     }
     use {"phaazon/hop.nvim", branch = "v2"}
-    use {"meatballs/magma-nvim", run = ":UpdateRemotePlugins"}
+    use {"dccsillag/magma-nvim", run = ":UpdateRemotePlugins"}
 end
 )

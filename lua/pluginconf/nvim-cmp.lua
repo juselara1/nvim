@@ -52,7 +52,7 @@ local cmp = require'cmp'
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local lsp_servers = {
-    "ansiblels", "sumneko_lua", "bashls", "clangd",
+    "ansiblels", "bashls", "clangd",
     "cmake", "dockerls", "elixirls", "eslint", "gopls",
     "hls", "html", "jsonls", "pyright", "rust_analyzer",
     "taplo", "zk"
