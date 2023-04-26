@@ -3,6 +3,8 @@ require("general.keybindings")
 
 require("plugins.plugs")
 
+require("pluginconf.fugitive")
+require("pluginconf.lsp")
 require("pluginconf.mason")
 require("pluginconf.nvim-cmp")
 require("pluginconf.lsp_signature")

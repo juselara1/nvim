@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-local bind = function(
+bind = function(
     mode, keys, command
     )
     vim.api.nvim_set_keymap(
@@ -8,15 +8,6 @@ local bind = function(
         {noremap = true, silent=true}
 	)
 end
-
--- fugitive
-bind('n', "<Leader>gs", ":Git<CR>")
-bind('n', "<Leader>gc", ":Git commit<CR>")
-bind('n', "<Leader>gp", ":Git push<CR>")
-bind('n', "<Leader>gd", ":Git diff<CR>")
-bind('n', "<Leader>gpl", ":Git pull<CR>")
-bind('n', "<Leader>gh", ":diffget //3<CR>")
-bind('n', "<Leader>gu", ":diffget //2<CR>")
 
 -- lsp
 bind('n', "gd", ":lua vim.lsp.buf.declaration()<CR>")
