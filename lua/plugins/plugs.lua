@@ -69,6 +69,7 @@ function()
             "nvim-tree/nvim-web-devicons", -- optional, for file icons
         }
     }
-    use {'phaazon/hop.nvim', branch = 'v2'}
+    use {"phaazon/hop.nvim", branch = "v2"}
+    use {"meatballs/magma-nvim", run = ":UpdateRemotePlugins"}
 end
 )
