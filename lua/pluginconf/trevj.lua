@@ -1,9 +1,15 @@
+status, _ = pcall(require, "trevj")
+if not status then return end
 local trevj = require("trevj")
 
-vim.keymap.set(
-    'n',
-    "<leader>j",
-    function()
-        trevj.format_at_cursor()
-    end
-)
+local options = {noremap = true, silent=true}
+local mode = 'n'
+local binds = {
+    {bind="<Leader>a", command=":AerialToggle<CR>"},
+}
+
+for _, value in pairs(binds) do
+    vim.keymap.set(
+            mode, value.bind, value.command, options
+        )
+end

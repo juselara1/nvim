@@ -1,5 +1,12 @@
-require'nvim-treesitter.configs'.setup {
-	ensure_installed = {"python", "bash", "julia", "c", "lua", "go", "rust", "html", "javascript", "cpp"},
+status, _ = pcall(require, "nvim-treesitter")
+if not status then return end
+
+require("nvim-treesitter.configs").setup {
+	ensure_installed = {
+        "python", "commonlisp", "bash", "julia",
+        "c", "lua", "go", "rust",
+        "html", "javascript", "cpp",
+    },
 	highlight = {
 		enable = true,
 	},

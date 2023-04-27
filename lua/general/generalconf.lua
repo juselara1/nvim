@@ -16,5 +16,8 @@ vim.o.expandtab = true
 vim.o.spelllang = "en,es"
 vim.o.list = false
 vim.o.listchars = "eol:$,tab:▶‒,trail:~,space:~,extends:>,precedes:<"
+vim.o.background = "dark"
+
+vim.opt.termguicolors = true
 
 vim.api.nvim_exec("syntax enable", false)

@@ -1,4 +1,6 @@
-require'marks'.setup {
+status, _ = pcall(require, "marks")
+if not status then return end
+require("marks").setup {
   default_mappings = true,
   builtin_marks = { ".", "<", ">", "^" },
   cyclic = true,

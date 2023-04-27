@@ -1,6 +1,8 @@
+status, _ = pcall(require, "lualine")
+if not status then return end
 require("lualine").setup({
 	options = {
-		theme = "gruvbox_dark",
+		theme = "everforest",
 		compontent_separators = "",
 		section_separators = "",
 		separator = ""
