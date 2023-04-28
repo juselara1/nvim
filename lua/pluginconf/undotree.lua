@@ -1,12 +1,7 @@
-status, _ = pcall(require, "hop")
-if not status then return end
-local hop = require("hop")
-hop.setup({keys="aoeuidhtns',.pyfgcrl"})
-
 local options = {noremap = true, silent=true}
 local mode = 'n'
 local binds = {
-    {bind="<Leader>f", command=":HopLine<CR>"},
+    {bind="<Leader>u", command=":UndotreeToggle<CR>"},
 }
 for _, value in pairs(binds) do
     vim.api.nvim_set_keymap(
