@@ -55,7 +55,7 @@ local lsp_servers = {
     "ansiblels", "bashls", "clangd", "cmake",
     "dockerls", "elixirls", "eslint", "gopls",
     "hls", "html", "jsonls", "pyright",
-    "rust_analyzer", "taplo", "zk",
+    "rust_analyzer", "taplo", "zk"
 }
 for _, lsp_server in ipairs(lsp_servers) do
     require("lspconfig")[lsp_server].setup {

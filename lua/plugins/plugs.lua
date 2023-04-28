@@ -30,20 +30,14 @@ function()
     use "romgrk/nvim-treesitter-context"
     use "p00f/nvim-ts-rainbow"
     use "christoomey/vim-tmux-navigator"
-    use {
-        "hoob3rt/lualine.nvim",
-        requires={"kyazdani42/nvim-web-devicons", opt=true}
-    }
+    use "kyazdani42/nvim-web-devicons"
+    use "hoob3rt/lualine.nvim"
     use "tpope/vim-fugitive"
-    use "SirVer/ultisnips"
     use "jpalardy/vim-slime"
     use "tpope/vim-surround"
     use "tpope/vim-repeat"
     use "AckslD/nvim-trevJ.lua"
-    use {
-        "akinsho/bufferline.nvim",
-        requires = "kyazdani42/nvim-web-devicons"
-    }
+    use "akinsho/bufferline.nvim"
     use "neovim/nvim-lspconfig"
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
@@ -53,23 +47,12 @@ function()
     use "hrsh7th/cmp-cmdline"
     use "hrsh7th/nvim-cmp"
     use "ray-x/lsp_signature.nvim"
-    use "quangnguyen30192/cmp-nvim-ultisnips"
     use "mbbill/undotree"
-    use "chentoast/marks.nvim"
-    use {
-        "stevearc/aerial.nvim",
-        branch = "nvim-0.5"
-    }
+    use "stevearc/aerial.nvim"
     use "wellle/targets.vim"
     use "numToStr/Comment.nvim"
     use "uga-rosa/ccc.nvim"
-    use {
-        "nvim-tree/nvim-tree.lua",
-        requires = {
-            "nvim-tree/nvim-web-devicons", -- optional, for file icons
-        }
-    }
+    use "nvim-tree/nvim-tree.lua"
     use {"phaazon/hop.nvim", branch = "v2"}
-    use {"dccsillag/magma-nvim", run = ":UpdateRemotePlugins"}
 end
 )
