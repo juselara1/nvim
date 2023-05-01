@@ -35,7 +35,6 @@ function()
     use "tpope/vim-fugitive"
     use "jpalardy/vim-slime"
     use "tpope/vim-surround"
-    use "tpope/vim-repeat"
     use "AckslD/nvim-trevJ.lua"
     use "akinsho/bufferline.nvim"
     use "neovim/nvim-lspconfig"
@@ -49,10 +48,10 @@ function()
     use "ray-x/lsp_signature.nvim"
     use "mbbill/undotree"
     use "stevearc/aerial.nvim"
-    use "wellle/targets.vim"
     use "numToStr/Comment.nvim"
     use "uga-rosa/ccc.nvim"
     use "nvim-tree/nvim-tree.lua"
     use {"phaazon/hop.nvim", branch = "v2"}
+    use "juselara1/teoj.nvim"
 end
 )
