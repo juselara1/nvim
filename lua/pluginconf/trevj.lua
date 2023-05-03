@@ -5,7 +5,7 @@ local trevj = require("trevj")
 local options = {noremap = true, silent=true}
 local mode = 'n'
 local binds = {
-    {bind="<Leader>a", command=":AerialToggle<CR>"},
+    {bind="<Leader>j", command=trevj.format_at_cursor},
 }
 
 for _, value in pairs(binds) do

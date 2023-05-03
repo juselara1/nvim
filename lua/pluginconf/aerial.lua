@@ -2,8 +2,10 @@ status, _ = pcall(require, "aerial")
 if not status then return end
 require("aerial").setup({
     backends = { "treesitter", "lsp", "markdown", "man" },
-    default_direction = "float",
-    placement = "window"
+    layout = {
+        placement = "window",
+        default_direction = "float"
+    }
 })
 
 local options = {noremap = true, silent=true}

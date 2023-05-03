@@ -28,7 +28,6 @@ function()
     use "nvim-treesitter/nvim-treesitter"
     use "nvim-treesitter/playground"
     use "romgrk/nvim-treesitter-context"
-    use "p00f/nvim-ts-rainbow"
     use "christoomey/vim-tmux-navigator"
     use "kyazdani42/nvim-web-devicons"
     use "hoob3rt/lualine.nvim"
@@ -52,6 +51,8 @@ function()
     use "uga-rosa/ccc.nvim"
     use "nvim-tree/nvim-tree.lua"
     use {"phaazon/hop.nvim", branch = "v2"}
-    use "juselara1/teoj.nvim"
+    use "norcalli/nvim-colorizer.lua"
+    use {"juselara1/teoj.nvim"}
+    use {"juselara1/textbook.nvim", run = ":UpdateRemotePlugins"}
 end
 )
