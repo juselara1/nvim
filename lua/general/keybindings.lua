@@ -12,12 +12,12 @@ end
 -- shortcuts
 bind('n', "<Leader>c", ":noh<CR>") --clear search
 bind('n', "<Leader>e", ":e .<CR>") --file navigator
-bind('n', "<Leader>s", ":set list!<CR>") --toggle hidden characters
+bind('n', "<Leader>sh", ":set list!<CR>") --toggle hidden characters
 bind('n', "<Leader>p", "\"0p") --paste from yank buffer
 
 -- spellcheck
 bind('n', "<Leader>h", ":set spell!<CR>")
-bind('n', "<Leader>t", "1z=")
+bind('n', "<Leader>k", "1z=")
 
 --rebinds
 bind('n', "<C-d>", "<C-d>zz")

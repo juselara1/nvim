@@ -1,7 +1,7 @@
 vim.g.slime_target = "tmux"
 vim.g.slime_paste_file = vim.fn.expand("$HOME/.slime_paste")
 
-local delimiters = {
+delimiters = {
     python = "# %%", sh = "# %%", julia = "# %%", r = "# %%", javascript = "// %%",
     lua = "-- %%", haskell="-- %%", lisp = ";; %%"
 }
@@ -20,3 +20,13 @@ for _, value in pairs(binds) do
             mode, value.bind, value.command, options
         )
 end
+
+function config_slime()
+    local ft = vim.bo.filetype
+    vim.g.slime_cell_delimiter = delimiters[ft]
+    vim.api.nvim_command("SlimeConfig")
+end
+
+vim.keymap.set(
+        mode, "<Leader>sc", config_slime, options
+    )

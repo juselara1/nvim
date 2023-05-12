@@ -53,7 +53,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 
 local lsp_servers = {
     "ansiblels", "bashls", "clangd", "cmake",
-    "dockerls", "elixirls", "eslint", "gopls",
+    "dockerls", "eslint", "gopls", "julials",
     "hls", "html", "jsonls", "pyright",
     "rust_analyzer", "taplo", "zk"
 }

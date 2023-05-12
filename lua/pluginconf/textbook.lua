@@ -1,12 +1,3 @@
-vim.g.TextBookTmpPath = "/tmp"
-vim.g.TextBookCellIndicator = ">"
-vim.g.TextBookCellPattern = "^# %% [(?P<cell_type>\\w+)]"
-vim.g.TextBookCellText = " Cell: {}"
-vim.g.TextBookCellColor = "\\#5180E6"
-vim.g.TextBookTheme = "vim"
-vim.g.TextBookCommentPattern = "^\\#"
-
-
 local mode = 'n'
 local options = {noremap=true, silent=true}
 
@@ -19,6 +10,10 @@ local binds = {
     {bind="<Leader>tj", command=":TextBookSelectNextCell<CR>"},
     {bind="<Leader>tk", command=":TextBookSelectPrevCell<CR>"},
     {bind="<Leader>tq", command=":TextBookClose<CR>"},
+    {bind="<Leader>tma", command=":TextBookAddCell markdown 1<CR>"},
+    {bind="<Leader>tmb", command=":TextBookAddCell markdown 0<CR>"},
+    {bind="<Leader>tra", command=":TextBookAddCell code 1<CR>"},
+    {bind="<Leader>trb", command=":TextBookAddCell code 0<CR>"},
 }
 
 for _, value in pairs(binds) do
