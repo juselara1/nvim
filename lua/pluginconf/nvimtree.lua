@@ -6,7 +6,7 @@ require("nvim-tree.view").View.winopts.relativenumber = true
 local options = {noremap = true, silent=true}
 local mode = 'n'
 local binds = {
-    {bind="<Leader>o", command=":NvimTreeToggle<CR>"},
+    {bind="<Leader>oo", command=":NvimTreeToggle<CR>"},
 }
 for _, value in pairs(binds) do
     vim.api.nvim_set_keymap(

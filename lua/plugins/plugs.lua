@@ -21,7 +21,6 @@ packer.init({
     }
 })
 
---- startup and add configure plugins
 packer.startup(
 function()
     use "sainnhe/everforest"
@@ -52,7 +51,12 @@ function()
     use "nvim-tree/nvim-tree.lua"
     use {"phaazon/hop.nvim", branch = "v2"}
     use "norcalli/nvim-colorizer.lua"
-    use {"juselara1/teoj.nvim"}
+    use 'kdheepak/JuliaFormatter.vim'
+    use "juselara1/teoj.nvim"
     use {"juselara1/textbook.nvim", run = ":UpdateRemotePlugins"}
+    use {
+        "nvim-telescope/telescope.nvim", tag = "0.1.1",
+        requires = { {"nvim-lua/plenary.nvim"} },
+    }
 end
 )

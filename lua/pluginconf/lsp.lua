@@ -1,3 +1,12 @@
+pkgs = {"lspconfig"}
+
+for _, pkg in ipairs(pkgs) do
+    status, _ = pcall(require, pkg)
+    if not status then return end
+end
+
+local lspconfig = require("lspconfig")
+
 local options = {noremap = true, silent=true}
 local mode = 'n'
 local binds = {
@@ -16,3 +25,12 @@ for _, value in pairs(binds) do
             mode, value.bind, value.command, options
         )
 end
+
+
+lspconfig.pyright.setup {
+    root_dir = lspconfig.util.root_pattern(".venv", ".git")
+}
+
+lspconfig.julials.setup {
+    root_dir = lspconfig.util.root_pattern("Project.toml")
+}

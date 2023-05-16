@@ -17,7 +17,6 @@ bind('n', "<Leader>p", "\"0p") --paste from yank buffer
 
 -- spellcheck
 bind('n', "<Leader>h", ":set spell!<CR>")
-bind('n', "<Leader>k", "1z=")
 
 --rebinds
 bind('n', "<C-d>", "<C-d>zz")

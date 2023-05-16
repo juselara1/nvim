@@ -1,4 +1,4 @@
-pkgs = {"cmp", "cmp_nvim_lsp", "lspconfig"}
+pkgs = {"cmp", "lspconfig"}
 for _, pkg in ipairs(pkgs) do
     status, _ = pcall(require, pkg)
     if not status then return end
@@ -49,16 +49,8 @@ cmp.setup.cmdline(':', {
     })
 })
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local lspconfig = require("lspconfig")
 
-local lsp_servers = {
-    "ansiblels", "bashls", "clangd", "cmake",
-    "dockerls", "eslint", "gopls", "julials",
-    "hls", "html", "jsonls", "pyright",
-    "rust_analyzer", "taplo", "zk"
+lspconfig.pyright.setup {
+    root_dir = lspconfig.util.root_pattern(".venv", ".git")
 }
-for _, lsp_server in ipairs(lsp_servers) do
-    require("lspconfig")[lsp_server].setup {
-        capabilities = capabilities
-    }
-end
