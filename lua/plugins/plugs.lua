@@ -55,8 +55,13 @@ function()
     use "juselara1/teoj.nvim"
     use {"juselara1/textbook.nvim", run = ":UpdateRemotePlugins"}
     use {
-        "nvim-telescope/telescope.nvim", tag = "0.1.1",
-        requires = { {"nvim-lua/plenary.nvim"} },
+        "juselara1/asyncmake.nvim",
+        requires = {
+            {"rcarriga/nvim-notify"},
+            {"nvim-telescope/telescope.nvim", tag = "0.1.1"},
+            {"nvim-lua/plenary.nvim"}
+        },
+        run = ":UpdateRemotePlugins"
     }
 end
 )
