@@ -50,5 +50,13 @@ return {
 			single_file_support = false,
 			root_dir = lspconfig.util.root_pattern(".git")
 		}
+		lspconfig.rust_analyzer.setup {
+			on_attach = function (_, buffer)
+				set_keymaps(buffer)
+			end,
+			filetypes = {"rust"},
+			single_file_support = false,
+			root_dir = lspconfig.util.root_pattern("Cargo.toml")
+		}
 	end
 }

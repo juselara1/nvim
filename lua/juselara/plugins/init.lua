@@ -5,7 +5,6 @@ return {
 	require("juselara.plugins.which-key"),
 	require("juselara.plugins.flash"),
 	require("juselara.plugins.telescope"),
-	require("juselara.plugins.telescope-undo"),
 	require("juselara.plugins.treesitter"),
 	require("juselara.plugins.treesitter-textobjs"),
 	require("juselara.plugins.aerial"),

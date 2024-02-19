@@ -8,11 +8,27 @@ return {
 		"AckslD/nvim-trevJ.lua"
 	},
 	config = function()
+		local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+		parser_config.nu = {
+		  install_info = {
+			url = "https://github.com/nushell/tree-sitter-nu",
+			files = { "src/parser.c" },
+			branch = "main",
+		  },
+		  filetype = "nu",
+		}
+		vim.filetype.add({
+			extension = {
+				nu = "nu"
+			}
+		})
 		require("nvim-treesitter.configs").setup {
 			ensure_installed = {
 				"python", "commonlisp", "bash", "c",
 				"lua", "rust", "julia", "dockerfile",
-				"gitignore", "markdown", "json"
+				"gitignore", "markdown", "json",
+				"nu"
 			},
 			highlight = {enable = true},
 			incremental_selection = {
