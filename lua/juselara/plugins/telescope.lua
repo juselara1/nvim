@@ -14,6 +14,17 @@ return {
 	},
 	config = function ()
 		local builtin = require("telescope.builtin")
+		local actions = require("telescope.actions")
+		require("telescope").setup{
+			defaults = {
+				mappings = {
+					i = {
+						["<C-j>"] = actions.move_selection_next,
+						["<C-k>"] = actions.move_selection_previous,
+					}
+				}
+			}
+		}
 
 		vim.keymap.set('n', "<leader>t", builtin.find_files, {noremap = true, silent=true, desc="Fuzzy file"})
 		vim.keymap.set('n', "<leader>b", builtin.buffers, {noremap = true, silent=true, desc="Buffers"})
