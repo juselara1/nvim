@@ -3,12 +3,13 @@ return {
 	require("juselara.plugins.cmp"),
 	require("juselara.plugins.comment"),
 	require("juselara.plugins.lspconfig"),
+	require("juselara.plugins.luasnip"),
+	require("juselara.plugins.mellifluous"),
 	require("juselara.plugins.neotree"),
+	require("juselara.plugins.noise"),
 	require("juselara.plugins.telescope"),
 	require("juselara.plugins.treesitter"),
 	require("juselara.plugins.treesitter-textobjs"),
 	require("juselara.plugins.trevj"),
 	require("juselara.plugins.which-key"),
-	require("juselara.plugins.mellifluous"),
-	require("juselara.plugins.luasnip")
 }
