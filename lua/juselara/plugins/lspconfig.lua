@@ -50,5 +50,12 @@ return {
 			single_file_support = false,
 			root_dir = lspconfig.util.root_pattern(".git")
 		}
+		lspconfig.clangd.setup {
+			on_attach = function (_, buffer)
+				set_keymaps(buffer)
+			end,
+			filetypes = {'c'},
+			root_dir = lspconfig.util.root_pattern(".git"),
+		}
 	end
 }

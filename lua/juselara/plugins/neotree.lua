@@ -13,18 +13,20 @@ return {
 			":Neotree filesystem toggle<CR>",
 			desc="Neotree"
 		},
-		{
-			"<leader>ge",
-			mode='n',
-			":Neotree git_status toggle<CR>",
-			desc="Neotree Git"
-		}
 	},
 	config = function ()
 		require("neo-tree").setup({
 			filesystem = {
 				filtered_items = {
 					visible=true
+				}
+			},
+			event_handlers = {
+				{
+					event = "neo_tree_buffer_enter",
+					handler = function(_)
+						vim.cmd("setlocal relativenumber")
+					end
 				}
 			}
 		})

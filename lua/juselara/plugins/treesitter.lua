@@ -14,6 +14,9 @@ return {
 				"lua", "rust", "julia", "dockerfile",
 				"gitignore", "markdown", "json"
 			},
+			sync_install = true,
+			auto_install = true,
+			ignore_install = {},
 			highlight = {enable = true},
 			incremental_selection = {
 				enable = true,
@@ -22,7 +25,8 @@ return {
 					node_incremental = "gan",
 					node_decremental = "gdn"
 				}
-			}
+			},
+			modules = {}
 		}
 	end,
 }
