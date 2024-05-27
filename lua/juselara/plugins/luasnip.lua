@@ -4,11 +4,27 @@ return {
 	run = "make install_jsregexp",
 	config = function()
 		local ls = require("luasnip")
+		ls.setup({update_events = {"TextChanged", "TextChangedI"}})
 
-		local s = ls.snippet
-		local t = ls.text_node
-		local i = ls.insert_node
+		-- keymaps
+		vim.keymap.set({'i', 's'}, "<C-j>", function()
+			ls.expand_or_jump()
+		end, {silent=true})
 
-		vim.keymap.set({'i'}, "<C-k>", function() ls.expand() end, {silent=true})
+		vim.keymap.set({'i', 's'}, "<C-k>", function()
+			ls.jump(-1)
+		end, {silent=true})
+
+		vim.keymap.set({'i', 's'}, "<C-n>", function()
+			if ls.choice_active() then
+				ls.change_choice(1)
+			end
+		end, {silent=true})
+
+		-- config
+		local langs = {"lua", "python"}
+		for _, lang in ipairs(langs) do
+			require(string.format("juselara.plugins.snippets.%s", lang)).setup()
+		end
 	end
 }

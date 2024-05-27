@@ -39,6 +39,9 @@ return {
 			[25] = 25,
 		}
 		cmp.setup {
+			completion = {
+				autocomplete = false
+			},
 			snippet = {
 				expand = function (args)
 					require("luasnip").lsp_expand(args.body)
