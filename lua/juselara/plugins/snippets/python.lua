@@ -59,7 +59,7 @@ local function setup ()
 				end
 				return sn(nil, nodes)
 			end, {2}),
-			i(6, "rdoc"), f(function (args) return args[1][1] end, {3}), i(7, "body")
+			i(6, "rdoc"), f(function (args) return args[1][1] end, {3}), i(7, "...")
 		}
 		)),
 		-- Define class
@@ -76,6 +76,9 @@ local function setup ()
 		]], {
 			i(1, "cname"), i(2, ""), i(3, ""),
 			i(4, "docstring"), d(5, function(args)
+				if args[1][1] == '' then
+					return sn(nil, t"")
+				end
 				local attrs = {}
 				for _, arg in ipairs(args[1]) do
 					local attr = vim.split(arg:gsub(' ', ''), ':')
@@ -93,7 +96,68 @@ local function setup ()
 					table.insert(nodes, t(string.format(":type %s: %s", attr[1], attr[2])))
 				end
 				return sn(nil, nodes)
-			end, {3}), i(6, "body")
+			end, {3}), i(6, "...")
+		}
+		)),
+		-- Method
+		s("@method", fmt(
+		[[
+		def {}(self, {}) -> {}:
+			"""
+			{}
+		{}
+			:returns: {}
+			:rtype: {}
+			"""
+			{}
+		]], {
+			i(1, "mname"), i(2, ""), i(3, "rtype"), i(4, "docstring"),
+			d(5, function(args)
+				local params_str = args[1][1]:gsub(" ", "")
+				if params_str == '' then
+					return sn(nil, t'')
+				end
+				local params = vim.split(params_str, ',')
+				local nodes = {}
+				for idx, param_str in ipairs(params) do
+					local param = vim.split(param_str, ":")
+					table.insert(nodes, nl())
+					table.insert(nodes, t"\t")
+					table.insert(nodes, t(string.format(":param %s: ", param[1])))
+					table.insert(nodes, i(idx, "pdoc"))
+					table.insert(nodes, nl())
+					table.insert(nodes, t"\t")
+					table.insert(nodes, t(string.format(":type %s: %s", param[1], param[2])))
+				end
+				return sn(nil, nodes)
+			end, {2}),
+			i(6, "rdoc"), f(function(args) return args[1][1] end, {3}),
+			i(7, "...")
+		}
+		)),
+		-- Init method
+		s("@imethod", fmt(
+		[[
+		def __init__(self, {}):
+		{}
+		{}
+		]], {
+			i(1, ""),
+			f(function(args)
+				vim.print(args)
+				local params_str = args[1][1]:gsub(" ", "")
+				if params_str == '' then
+					return '\t'
+				end
+				local params = vim.split(params_str, ',')
+				local strs = {}
+				for _, param_str in ipairs(params) do
+					local param = vim.split(param_str, ':')
+					table.insert(strs, string.format("\tself.%s = %s", param[1], param[1]))
+				end
+				return strs
+			end, {1}),
+			nl()
 		}
 		)),
 	})
