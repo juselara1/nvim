@@ -66,16 +66,16 @@ local function setup ()
 		s("@class", fmt(
 		[[
 		class {}({}):
-			{}
-
 			"""
 			{}
 		{}
 			"""
 			{}
+
+			{}
 		]], {
-			i(1, "cname"), i(2, ""), i(3, ""),
-			i(4, "docstring"), d(5, function(args)
+			i(1, "cname"), i(2, ""), i(3, "docstring"),
+			d(5, function(args)
 				if args[1][1] == '' then
 					return sn(nil, t"")
 				end
@@ -96,7 +96,7 @@ local function setup ()
 					table.insert(nodes, t(string.format(":type %s: %s", attr[1], attr[2])))
 				end
 				return sn(nil, nodes)
-			end, {3}), i(6, "...")
+			end, {4}), i(4, ""), i(6, "...")
 		}
 		)),
 		-- Method
