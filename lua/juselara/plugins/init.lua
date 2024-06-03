@@ -10,6 +10,7 @@ return {
 	require("juselara.plugins.telescope"),
 	require("juselara.plugins.treesitter"),
 	require("juselara.plugins.treesitter-textobjs"),
+	require("juselara.plugins.treesitter-playground"),
 	require("juselara.plugins.trevj"),
 	require("juselara.plugins.which-key"),
 }
