@@ -69,6 +69,19 @@ local function setup ()
 			return typed_params
 		end
 	end
+
+	---Parses class attributes
+	---@param params string[]
+	---@return {name: string, type: string}[]
+	local function get_class_attrs(params)
+		local attrs = {}
+		for _, param in ipairs(params) do
+			local attr = vim.split(param:gsub(' ', ''), ':')
+			table.insert(attrs, {name=attr[1], type=attr[2]})
+		end
+		return attrs
+	end
+
 	ls.add_snippets("python", {
 		-- Define variable
 		s("@var", {
@@ -127,25 +140,10 @@ local function setup ()
 			name=i(1, "name"), super=i(2, ""), docstring=i(3, "docstring"),
 			doc_params=d(5, function(args)
 				if args[1][1] == '' then
-					return sn(nil, t"")
+					return sn(nil, t'')
 				end
-				local attrs = {}
-				for _, arg in ipairs(args[1]) do
-					local attr = vim.split(arg:gsub(' ', ''), ':')
-					table.insert(attrs, attr)
-				end
-
-				local nodes = {}
-				for idx, attr in ipairs(attrs) do
-					table.insert(nodes, nl())
-					table.insert(nodes, t"\t")
-					table.insert(nodes, t(string.format(":param %s: ", attr[1])))
-					table.insert(nodes, i(idx, "pdoc"))
-					table.insert(nodes, nl())
-					table.insert(nodes, t"\t")
-					table.insert(nodes, t(string.format(":type %s: %s", attr[1], attr[2])))
-				end
-				return sn(nil, nodes)
+				local params = get_class_attrs(args[1])
+				return docstring_params(params)
 			end, {4}), params=i(4, ""), body=i(6, "...")
 		}
 		)),
@@ -162,13 +160,13 @@ local function setup ()
 			{}
 		]], {
 			i(1, "mname"), i(2, ""), i(3, "rtype"), i(4, "docstring"),
-			d(5, function(args)
-				local params_str = args[1][1]:gsub(" ", "")
-				if params_str == '' then
+			d(5, function()
+				local params = get_ts_params()
+				if params then
+					return docstring_params(params)
+				else
 					return sn(nil, t'')
 				end
-				local params = vim.split(params_str, ',')
-				return docstring_params(params)
 			end, {2}),
 			i(6, "rdoc"), f(function(args) return args[1][1] end, {3}),
 			i(7, "...")
@@ -183,17 +181,16 @@ local function setup ()
 		]], {
 			i(1, ""),
 			f(function(args)
-				local params_str = args[1][1]:gsub(" ", "")
-				if params_str == '' then
-					return '\t'
+				local params = get_ts_params()
+				if params then
+					local strs = {}
+					for _, param in ipairs(params) do
+						table.insert(strs, string.format("\tself.%s = %s", param.name, param.name))
+					end
+					return strs
+				else
+					return ''
 				end
-				local params = vim.split(params_str, ',')
-				local strs = {}
-				for _, param_str in ipairs(params) do
-					local param = vim.split(param_str, ':')
-					table.insert(strs, string.format("\tself.%s = %s", param[1], param[1]))
-				end
-				return strs
 			end, {1}),
 			nl()
 		}
