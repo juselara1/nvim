@@ -10,6 +10,7 @@ local function setup ()
 	local c = ls.choice_node
 	local f = ls.function_node
 	local d = ls.dynamic_node
+	local r = ls.restore_node
 	local function nl() return t{"", ""} end
 
 	--- Generates docstring for function's parameters.
@@ -55,7 +56,6 @@ local function setup ()
 			for _, capture, _ in query1:iter_captures(node, 0) do
 				table.insert(pnames, vim.treesitter.get_node_text(capture, 0))
 			end
-			vim.print(pnames)
 
 			local ptypes = {}
 			for _, capture, _ in query2:iter_captures(node, 0) do
@@ -148,19 +148,19 @@ local function setup ()
 		}
 		)),
 		-- Method
-		s("@method", fmt(
+		s("@method", fmta(
 		[[
-		def {}(self, {}) -> {}:
+		def <name>(self, <params>) ->> <rtype>:
 			"""
-			{}
-		{}
-			:returns: {}
-			:rtype: {}
+			<docstring>
+		<doc_params>
+			:returns: <rdoc>
+			:rtype: <rtype2>
 			"""
-			{}
+			<body>
 		]], {
-			i(1, "mname"), i(2, ""), i(3, "rtype"), i(4, "docstring"),
-			d(5, function()
+			name=i(1, "name"), params=i(2, ""), rtype=i(3, "None"), docstring=i(4, "docstring"),
+			doc_params=d(5, function(_)
 				local params = get_ts_params()
 				if params then
 					return docstring_params(params)
@@ -168,19 +168,19 @@ local function setup ()
 					return sn(nil, t'')
 				end
 			end, {2}),
-			i(6, "rdoc"), f(function(args) return args[1][1] end, {3}),
-			i(7, "...")
+			rdoc=i(6, "rdoc"), rtype2=f(function(args) return args[1][1] end, {3}),
+			body=i(7, "...")
 		}
 		)),
 		-- Init method
-		s("@imethod", fmt(
+		s("@imethod", fmta(
 		[[
-		def __init__(self, {}):
-		{}
-		{}
+		def __init__(self, <params>):
+		<aparams>
+		<body>
 		]], {
-			i(1, ""),
-			f(function(args)
+			params=i(1, ""),
+			aparams=f(function(_)
 				local params = get_ts_params()
 				if params then
 					local strs = {}
@@ -192,7 +192,33 @@ local function setup ()
 					return ''
 				end
 			end, {1}),
-			nl()
+			body=nl()
+		}
+		)),
+		-- Enum
+		s("@enum", fmta(
+		[[
+		class <name>(<enum>):
+			"""
+			<docstring>
+
+			opts: {<opts>}
+			"""
+		<attrs>
+		]],
+		{
+			name=i(1, "name"), enum=i(2, "Enum"), docstring=i(3, "docstring"),
+			opts=i(4, ''), attrs=f(function(args)
+				if args[1][1] == '' then
+					return ''
+				end
+				local opts = vim.split(args[1][1], ',')
+				local strs = {}
+				for _, opt in ipairs(opts) do
+					table.insert(strs, string.format("\t%s = auto()", opt:gsub(' ', '')))
+				end
+				return strs
+			end, {4})
 		}
 		)),
 	})
