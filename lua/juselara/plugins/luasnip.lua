@@ -22,7 +22,7 @@ return {
 		end, {silent=true})
 
 		-- config
-		local langs = {"lua", "python"}
+		local langs = {"lua", "python", 'c'}
 		for _, lang in ipairs(langs) do
 			require(string.format("juselara.plugins.snippets.%s", lang)).setup()
 		end

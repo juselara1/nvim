@@ -10,7 +10,6 @@ local function setup ()
 	local c = ls.choice_node
 	local f = ls.function_node
 	local d = ls.dynamic_node
-	local r = ls.restore_node
 	local function nl() return t{"", ""} end
 
 	--- Generates docstring for function's parameters.
@@ -147,6 +146,28 @@ local function setup ()
 			end, {4}), params=i(4, ""), body=i(6, "...")
 		}
 		)),
+		-- ABC
+		s("@abc", fmta(
+		[[
+		class <name>(ABC):
+			"""
+			<docstring>
+		<doc_params>
+			"""
+			<params>
+
+			<body>
+		]], {
+			name=i(1, "name"), docstring=i(2, "docstring"),
+			doc_params=d(4, function(args)
+				if args[1][1] == '' then
+					return sn(nil, t'')
+				end
+				local params = get_class_attrs(args[1])
+				return docstring_params(params)
+			end, {3}), params=i(3, ""), body=i(5, "...")
+		}
+		)),
 		-- Method
 		s("@method", fmta(
 		[[
@@ -195,6 +216,34 @@ local function setup ()
 			body=nl()
 		}
 		)),
+		-- Abstract method
+		s("@amethod", fmta(
+		[[
+		@abstractmethod
+		def <name>(self, <params>) ->> <rtype>:
+			"""
+			<docstring>
+		<doc_params>
+			:returns: <rdoc>
+			:rtype: <rtype2>
+			"""
+			...
+
+		<body>
+		]], {
+			name=i(1, "name"), params=i(2, ""), rtype=i(3, "None"), docstring=i(4, "docstring"),
+			doc_params=d(5, function(_)
+				local params = get_ts_params()
+				if params then
+					return docstring_params(params)
+				else
+					return sn(nil, t'')
+				end
+			end, {2}),
+			rdoc=i(6, "rdoc"), rtype2=f(function(args) return args[1][1] end, {3}),
+			body=t''
+		}
+		)),
 		-- Enum
 		s("@enum", fmta(
 		[[
@@ -220,6 +269,26 @@ local function setup ()
 				return strs
 			end, {4})
 		}
+		)),
+		-- For loop
+		s({trig="@for:(%w+)", regTrig=true}, fmta(
+		[[
+		for <var> in <iterable>:
+			<body>
+		]],
+		{
+			var=i(1, 'i'), iterable=f(function (_, snip)
+				return snip.captures[1]
+			end), body=i(2, "...")
+		}
+		)),
+		-- Main
+		s("@main", fmta(
+		[[
+		if __name__ == "__main__":
+			<body>
+		]],
+		{body=t''}
 		)),
 	})
 end
