@@ -18,6 +18,8 @@ vim.o.background = "dark"
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 vim.o.termguicolors = true
+vim.o.swapfile = false
+vim.o.backupcopy = "yes"
 vim.cmd.syntax "enable"
 
 --vim.api.nvim_exec("syntax enable", false)
