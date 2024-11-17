@@ -10,7 +10,8 @@ return {
 			ensure_installed = {
 				"python", "commonlisp", "bash", "c",
 				"lua", "rust", "julia", "dockerfile",
-				"gitignore", "markdown", "json"
+				"gitignore", "markdown", "json",
+				"terraform"
 			},
 			sync_install = true,
 			auto_install = true,

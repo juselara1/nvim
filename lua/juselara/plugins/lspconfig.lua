@@ -57,5 +57,19 @@ return {
 			filetypes = {'c'},
 			root_dir = lspconfig.util.root_pattern(".git"),
 		}
+		lspconfig.terraformls.setup {
+			on_attach = function (_, buffer)
+				set_keymaps(buffer)
+			end,
+			filetypes = {"terraform"},
+			root_dir = lspconfig.util.root_pattern(".git"),
+		}
+		lspconfig.tflint.setup {
+			on_attach = function (_, buffer)
+				set_keymaps(buffer)
+			end,
+			filetypes = {"terraform"},
+			root_dir = lspconfig.util.root_pattern(".git"),
+		}
 	end
 }

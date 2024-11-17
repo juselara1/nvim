@@ -5,6 +5,7 @@ return {
 	require("juselara.plugins.gruvbox"),
 	require("juselara.plugins.lspconfig"),
 	require("juselara.plugins.luasnip"),
+	require("juselara.plugins.marks"),
 	require("juselara.plugins.noice"),
 	require("juselara.plugins.oil"),
 	require("juselara.plugins.render-markdown"),
