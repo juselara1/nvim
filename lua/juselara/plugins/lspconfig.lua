@@ -71,5 +71,12 @@ return {
 			filetypes = {"terraform"},
 			root_dir = lspconfig.util.root_pattern(".git"),
 		}
+		lspconfig.texlab.setup {
+			on_attach = function (_, buffer)
+				set_keymaps(buffer)
+			end,
+			filetypes = {"latex", "tex"},
+			root_dir = lspconfig.util.root_pattern(".git"),
+		}
 	end
 }

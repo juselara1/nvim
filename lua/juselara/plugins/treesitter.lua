@@ -14,9 +14,12 @@ return {
 				"terraform"
 			},
 			sync_install = true,
-			auto_install = true,
+			auto_install = false,
 			ignore_install = {},
-			highlight = {enable = true},
+			highlight = {
+				enable = true,
+				disable = { "latex", "tex" }
+			},
 			incremental_selection = {
 				enable = true,
 				keymaps = {
