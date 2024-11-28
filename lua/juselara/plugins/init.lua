@@ -10,6 +10,7 @@ return {
 	require("juselara.plugins.oil"),
 	require("juselara.plugins.render-markdown"),
 	require("juselara.plugins.telescope"),
+	require("juselara.plugins.tmutils"),
 	require("juselara.plugins.treesitter"),
 	require("juselara.plugins.treesitter-playground"),
 	require("juselara.plugins.treesitter-textobjs"),
