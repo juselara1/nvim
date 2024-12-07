@@ -50,14 +50,35 @@ return {
 		}
 
 		vim.keymap.set(
-			'n', "<leader>r", ":TmutilsWindow repl<CR>",
+			'n', "<leader>tc", ":TmutilsConfig<CR>",
 			{
 				noremap = true, silent=true,
-				desc="Shows a menu to select and launch a repl"
+				desc="Setups the Tmutils pane."
 				}
 			)
 		vim.keymap.set(
-				{'n'}, "<leader>x", function ()
+			'n', "<leader>ta", ":TmutilsCapture newbuffer<CR>",
+			{
+				noremap = true, silent=true,
+				desc="Captures the content of a Tmutils pane."
+				}
+			)
+		vim.keymap.set(
+			'n', "<leader>tt", ":TmutilsWindow terminal<CR>",
+			{
+				noremap = true, silent=true,
+				desc="Launches a Tmutils terminal."
+				}
+			)
+		vim.keymap.set(
+			'n', "<leader>tr", ":TmutilsWindow repl<CR>",
+			{
+				noremap = true, silent=true,
+				desc="Shows a menu to select and launch a Tmutils repl."
+				}
+			)
+		vim.keymap.set(
+			'n', "<leader>tx", function ()
 				vim.cmd("norm vix")
 				local pos_l = vim.fn.getpos('.')
 				local pos_r = vim.fn.getpos('v')
@@ -66,7 +87,14 @@ return {
 			end,
 			{
 				noremap = true, silent=false,
-				desc="Sends a code cell to a tmux pane"
+				desc="Sends a code cell to a Tmutils pane."
+				}
+			)
+		vim.keymap.set(
+			'v', "<leader>ts", ":TmutilsSend<CR>",
+			{
+				noremap = true, silent=false,
+				desc="Sends a visual selection to a Tmutils pane."
 				}
 			)
 	end

@@ -4,7 +4,7 @@ return {
 	dependencies = {"nvim-lua/plenary.nvim"},
 	keys = {
 		{
-			"<leader>t",
+			"<leader>f",
 			desc = "Fuzzy file"
 		},
 		{
@@ -27,7 +27,7 @@ return {
 			}
 		}
 
-		vim.keymap.set('n', "<leader>t", builtin.find_files, {noremap = true, silent=true, desc="Fuzzy file"})
+		vim.keymap.set('n', "<leader>f", builtin.find_files, {noremap = true, silent=true, desc="Fuzzy file"})
 		vim.keymap.set('n', "<leader>b", builtin.buffers, {noremap = true, silent=true, desc="Buffers"})
 	end
 }
