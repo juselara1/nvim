@@ -1,6 +1,7 @@
 return {
 	"stevearc/oil.nvim",
 	opts = {
+		default_file_explorer = false,
 		columns = {"icon", "permissions"},
 		float = {
 			preview_split = "right",
@@ -12,7 +13,7 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	keys = {
 		{
-			"<leader>e",
+			"<leader>o",
 			mode="n",
 			":Oil --float<CR>",
 			desc="Oil file explorer"

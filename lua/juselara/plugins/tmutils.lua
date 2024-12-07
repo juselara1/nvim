@@ -3,6 +3,32 @@ return {
 	dependencies = {
         "nvim-telescope/telescope.nvim",
     },
+	keys = {
+		{
+			"<leader>tc",
+			desc = "Setups the Tmutils pane."
+		},
+		{
+			"<leader>ta",
+			desc = "Captures the content of a Tmutils pane."
+		},
+		{
+			"<leader>tt",
+			desc = "Launches a Tmutils terminal."
+		},
+		{
+			"<leader>tr",
+			desc = "Shows a menu to select and launch a Tmutils repl."
+		},
+		{
+			"<leader>td",
+			desc = "Deletes the configured Tmutils pane."
+		},
+		{
+			"<leader>tx",
+			desc = "Sends a code cell to a Tmutils pane."
+		}
+	},
 	config = function()
 		local selectors = require("tmutils.selectors")
 		require("tmutils").setup {
@@ -75,6 +101,13 @@ return {
 			{
 				noremap = true, silent=true,
 				desc="Shows a menu to select and launch a Tmutils repl."
+				}
+			)
+		vim.keymap.set(
+			'n', "<leader>td", ":TmutilsWindow delete<CR>",
+			{
+				noremap = true, silent=true,
+				desc="Deletes the configured Tmutils pane."
 				}
 			)
 		vim.keymap.set(
