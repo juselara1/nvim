@@ -78,5 +78,12 @@ return {
 			filetypes = {"latex", "tex"},
 			root_dir = lspconfig.util.root_pattern(".git"),
 		}
+		lspconfig.gopls.setup {
+			on_attach = function (_, buffer)
+				set_keymaps(buffer)
+			end,
+			filetypes = {"go"},
+			root_dir = lspconfig.util.root_pattern(".git"),
+		}
 	end
 }

@@ -6,6 +6,7 @@ return {
 	require("juselara.plugins.lspconfig"),
 	require("juselara.plugins.luasnip"),
 	require("juselara.plugins.marks"),
+	require("juselara.plugins.miniai"),
 	require("juselara.plugins.noice"),
 	require("juselara.plugins.oil"),
 	require("juselara.plugins.render-markdown"),

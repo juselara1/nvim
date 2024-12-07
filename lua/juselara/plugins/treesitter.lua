@@ -11,7 +11,7 @@ return {
 				"python", "commonlisp", "bash", "c",
 				"lua", "rust", "julia", "dockerfile",
 				"gitignore", "markdown", "json",
-				"terraform"
+				"terraform", "go"
 			},
 			sync_install = true,
 			auto_install = false,
