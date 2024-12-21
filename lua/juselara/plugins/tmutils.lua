@@ -3,32 +3,6 @@ return {
 	dependencies = {
         "nvim-telescope/telescope.nvim",
     },
-	keys = {
-		{
-			"<leader>tc",
-			desc = "Setups the Tmutils pane."
-		},
-		{
-			"<leader>ta",
-			desc = "Captures the content of a Tmutils pane."
-		},
-		{
-			"<leader>tt",
-			desc = "Launches a Tmutils terminal."
-		},
-		{
-			"<leader>tr",
-			desc = "Shows a menu to select and launch a Tmutils repl."
-		},
-		{
-			"<leader>td",
-			desc = "Deletes the configured Tmutils pane."
-		},
-		{
-			"<leader>tx",
-			desc = "Sends a code cell to a Tmutils pane."
-		}
-	},
 	config = function()
 		local selectors = require("tmutils.selectors")
 		require("tmutils").setup {
@@ -36,20 +10,9 @@ return {
 				selector = selectors.telescope_selector
 			},
 			window = {
-				terminal = {
-                    direction = "vertical",
-                    size = 20,
-					commands = function()
-						return {
-							("cd %s"):format(vim.fn.getcwd()),
-							"clear"
-						}
-					end
-                },
 				repls = {
 					python = {
-						direction = "vertical",
-						size = 20,
+						syntax = "python",
 						commands = function()
 							return {
 								("cd %s"):format(vim.fn.getcwd()),
@@ -60,8 +23,7 @@ return {
 						end
 					},
 					ipython = {
-						direction = "vertical",
-						size = 20,
+						syntax = "python",
 						commands = function()
 							return {
 								("cd %s"):format(vim.fn.getcwd()),
@@ -71,6 +33,17 @@ return {
 							}
 						end
 					},
+					cuda = {
+						syntax = "sh",
+						commands = function()
+							return {
+								("cd %s"):format(vim.fn.getcwd()),
+								"docker compose up -d",
+								"docker exec -it `docker compose config --services` bash",
+								"clear"
+							}
+						end
+					}
 				}
 			}
 		}
@@ -111,6 +84,13 @@ return {
 				}
 			)
 		vim.keymap.set(
+			'n', "<leader>ts", ":TmutilsScratchToggle<CR>",
+			{
+				noremap = true, silent=true,
+				desc="Opens Tmutils Scratch"
+				}
+			)
+		vim.keymap.set(
 			'n', "<leader>tx", function ()
 				vim.cmd("norm vix")
 				local pos_l = vim.fn.getpos('.')
@@ -119,14 +99,21 @@ return {
 				vim.api.nvim_input("<Esc>")
 			end,
 			{
-				noremap = true, silent=false,
+				noremap = true, silent=true,
 				desc="Sends a code cell to a Tmutils pane."
 				}
 			)
 		vim.keymap.set(
-			'v', "<leader>ts", ":TmutilsSend<CR>",
+			'n', "<leader>tl", ":.TmutilsSend<CR>",
 			{
-				noremap = true, silent=false,
+				noremap = true, silent=true,
+				desc="Sends a visual selection to a Tmutils pane."
+				}
+			)
+		vim.keymap.set(
+			'v', "<leader>tv", ":TmutilsSend<CR>",
+			{
+				noremap = true, silent=true,
 				desc="Sends a visual selection to a Tmutils pane."
 				}
 			)

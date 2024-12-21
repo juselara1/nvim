@@ -9,9 +9,9 @@ return {
 		require("nvim-treesitter.configs").setup {
 			ensure_installed = {
 				"python", "commonlisp", "bash", "c",
-				"lua", "rust", "julia", "dockerfile",
+				"lua", "julia", "dockerfile",
 				"gitignore", "markdown", "json",
-				"terraform", "go"
+				"terraform", "go", "cuda"
 			},
 			sync_install = true,
 			auto_install = false,

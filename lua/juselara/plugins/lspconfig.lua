@@ -54,7 +54,7 @@ return {
 			on_attach = function (_, buffer)
 				set_keymaps(buffer)
 			end,
-			filetypes = {'c'},
+			filetypes = {'c', "cuda"},
 			root_dir = lspconfig.util.root_pattern(".git"),
 		}
 		lspconfig.terraformls.setup {
