@@ -15,6 +15,3 @@ vim.keymap.set('n', "<C-b>", "<C-u>zz", {noremap = true, silent=true, desc="Cent
 -- clipboard
 vim.keymap.set('n', "<leader>P", "\"+P", {noremap = true, silent=true, desc="Paste from system clipboard."})
 vim.keymap.set('n', "<leader>p", "\"0p", {noremap = true, silent=true, desc="Paste last yanked text."})
-
--- netrw
-vim.keymap.set('n', "<leader>e", ":Lexplore<cr>", {noremap=true, silent=true, desc="Open netrw menu."})

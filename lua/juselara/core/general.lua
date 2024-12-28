@@ -23,8 +23,6 @@ vim.o.backupcopy = "yes"
 vim.o.statuscolumn = "%s %l %r "
 vim.cmd.syntax "enable"
 
---vim.api.nvim_exec("syntax enable", false)
-
 -- highlight yanked text
 vim.cmd [[
 augroup highlight_yank
@@ -32,11 +30,3 @@ autocmd!
 au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=400})
 augroup END
 ]]
-
--- netrw config
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 3
-vim.g.netrw_browse_split = 4
-vim.g.netrw_altv = 1
-vim.g.netrw_winsize = 20
-vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"

@@ -8,6 +8,7 @@ return {
 	require("juselara.plugins.marks"),
 	require("juselara.plugins.miniai"),
 	require("juselara.plugins.nabla"),
+	require("juselara.plugins.nvim-tree"),
 	require("juselara.plugins.oil"),
 	require("juselara.plugins.render-markdown"),
 	require("juselara.plugins.telescope"),
