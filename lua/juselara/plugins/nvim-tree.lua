@@ -7,21 +7,21 @@ return {
 		},
 	},
 	config = function()
-		vim.g.loaded_netrw = 1
-		vim.g.loaded_netrwPlugin = 1
-
 		require("nvim-tree").setup {
 			sort = {
-				sorter = "case_sensitive"
+				sorter = "case_sensitive",
+				folders_first = true
 			},
 			view = {
-				width = 30
+				width = 40,
+				number = true,
+				relativenumber = true,
 			}
 		}
 
 		vim.keymap.set(
 			'n', "<leader>e", ":NvimTreeToggle<CR>", {
-				noremap = true, silent=false,
+				noremap = true, silent=true,
 				desc="Nvim tree"
 				}
 			)

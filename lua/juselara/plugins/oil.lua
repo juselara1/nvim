@@ -31,7 +31,11 @@ return {
 					local node = api.tree.get_node_under_cursor()
 					if node ~= nil then
 						api.tree.toggle()
-						oil.toggle_float(node.absolute_path)
+						if node.type == "directory" then
+							oil.toggle_float(node.absolute_path)
+						else
+							oil.toggle_float(node.parent.absolute_path)
+						end
 					end
 				else
 					oil.toggle_float()
